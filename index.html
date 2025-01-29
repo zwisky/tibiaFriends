@@ -25,7 +25,9 @@ function App() {
   );
 }
 
-const root = createRoot(document.getElementById('root'));
+// Configuración CORRECTA del renderizado
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <App />
