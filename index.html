@@ -1,35 +1,23 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import "./styles.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import { Rank } from "./components/rank";
-import ThemeToggle from "./components/ThemeToggle";
-
-function App() {
-  return (
-    <Container>
-      <ThemeToggle />
-      <Row>
-        <h1>Tibia ranking</h1>
-      </Row>
-      <Row className="align-items-center">
-        <span className="dot"></span>Sharing partners
-      </Row>
-      <Row>
-        <Rank />
-      </Row>
-    </Container>
-  );
-}
-
-// Configuración CORRECTA del renderizado
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="tibia.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta 
+      name="description" 
+      content="Ranking de amigos de Tibia - Seguimiento de progreso y estadísticas" 
+    />
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Tibia Friends Ranking</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>Necesitas habilitar JavaScript para usar esta aplicación</strong>
+    </noscript>
+    <div id="root"></div>
+    
+  </body>
+</html>
