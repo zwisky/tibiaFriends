@@ -1,22 +1,33 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/tibia.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <title>TibiaFriends</title>
-    <script type="module" crossorigin src="/assets/index-Cv8efxuD.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-N-Mj3bUM.css">
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
-</html>
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import "./styles.css";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import { Rank } from "./components/rank";
+import ThemeToggle from "./components/ThemeToggle";
+
+function App() {
+  return (
+    <Container>
+      <ThemeToggle />
+      <Row>
+        <h1>Tibia ranking</h1>
+      </Row>
+      <Row className="align-items-center">
+        <span className="dot"></span>Sharing partners
+      </Row>
+      <Row>
+        <Rank />
+      </Row>
+    </Container>
+  );
+}
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
