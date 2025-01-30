@@ -3,14 +3,14 @@
   "name": "Tibia Friends Ranking",
   "icons": [
     {
-      "src": "./tibia.ico",
+      "src": "/tibiaFriends/tibia.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
   ],
-  "start_url": "./",
+  "start_url": "/tibiaFriends/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "scope": "./"
+  "scope": "/tibiaFriends/"
 }
