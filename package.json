@@ -1,0 +1,47 @@
+{
+  "homepage": "https://zwisky.github.io/tibiaFriends",
+  "name": "tibiafriends",
+  "version": "0.1.3",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.25.9",
+    "@emotion/react": "^11.14.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^18.2.0",
+    "react-spinners": "^0.15.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "gh-pages": "^6.3.0",
+    "vite": "^5.1.4"
+  }
+}

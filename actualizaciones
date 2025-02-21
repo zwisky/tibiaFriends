@@ -1,0 +1,91 @@
+0.1.1
+
+actualizacion npm update.
+actualizacion Node.js v10.9.2 Actualiza el proyecto para que sea compatible con Node.js v23.6.0.
+"rank.js" se modifico los nombres de los chars, respuesta a errores en la consola y la llamada a la API; loadChars, getChar, rankChar.
+"index.js" se actualizo import react-dom
+"package.json" se actualizo react, react-dom y react-script
+actualizacion plugin babel/plugin-proposal-private-property-in-object"
+cambios a tema oscuro en "styles.css"
+modificacion del icon en index.html
+
+0.1.2
+
+Migrar de Create React App a Vite
+Actualización del package.json:
+Eliminadas dependencias de react-scripts, @testing-library/*
+Añadidas vite, @vitejs/plugin-react y gh-pages
+Actualizadas react y react-dom a versión 18.2.0
+Modificación de scripts: dev, build, preview
+Creación del archivo vite.config.js
+Motivación: Preparar la base para usar Vite como herramienta de construcción, mejorando velocidad y configuración.
+
+Reestructurar archivos públicos y rutas
+Movido public/index.html a la raíz del proyecto
+Actualizadas rutas en index.html:
+Reemplazado %PUBLIC_URL% por rutas absolutas (/tibia.ico)
+Cambiado <script src="/src/index.js"> por /src/index.jsx
+Actualización del manifest.json con nuevas rutas
+Motivación: Vite maneja los archivos estáticos de forma diferente a CRA, requiriendo nuevas rutas y estructura.
+
+Convertir componentes a JSX
+Renombrado de archivos:
+index.js → index.jsx
+components/char.js → char.jsx
+components/charList.js → charList.jsx
+components/rank.js → rank.jsx
+Ajuste de imports en componentes padre
+Motivación: Vite requiere extensión .jsx para reconocer correctamente la sintaxis JSX.
+
+Corregir imports de React
+Añadido import React from 'react' en:
+index.jsx
+char.jsx
+charList.jsx
+rank.jsx
+Actualizado método de renderizado en index.jsx para usar createRoot
+Motivación: React 18+ requiere importación explícita de React cuando se usa JSX clásico.
+
+Actualizar dependencias conflictivas
+Actualizado react-spinners a versión 0.13.8
+Actualizado react-bootstrap a versión 2.9.0
+Eliminado @babel/plugin-proposal-private-property-in-object
+Motivación: Resolver conflictos de compatibilidad con React 18 y nuevas características de Vite.
+
+Configurar manejo de JSX y Babel
+Añadida configuración en vite.config.js:
+javascript
+Copy
+esbuild: {
+  loader: 'jsx',
+  include: /src\/.*\.jsx?$/,
+}
+Creación de .babelrc con preset de React
+Instalación de @babel/preset-react
+Motivación: Asegurar que Vite y Babel procesen correctamente la sintaxis JSX en todos los componentes.
+
+Limpieza final y ajustes
+Eliminado service-worker.js y configuraciones de PWA antiguas
+Actualizado styles.css para rutas de imágenes absolutas
+Corrección de warnings de eslint
+Motivación: Remover código obsoleto y garantizar coherencia en el proyecto migrado.
+
+Flujo completo de cambios:
+Infraestructura: Configuración base de Vite
+Assets: Adaptación de rutas públicas
+Componentes: Conversión a JSX moderno
+Dependencias: Resolución de conflictos
+Build: Ajustes finales para producción
+
+0.1.3
+
+actualizacion de npm install @fortawesome/react-fontawesome@latest // para solucionar error en consola
+actualizacion dark theme desde el index.html usando bootstrap
+actualizacion bootstrap
+Creación del componente ThemeToggle
+Migración completa de HTML/JS vanilla a componente React funcional
+Implementación con Hooks (useState, useEffect) para manejo de estado
+Integración nativa con Bootstrap 5.3 mediante clases CSS
+Mejoras de UI/UX
+Mejor contraste visual en ambos modos (claro/oscuro)
+Elimina las carpetas y archivos redundantes

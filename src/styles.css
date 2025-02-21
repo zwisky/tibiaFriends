@@ -1,0 +1,21 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #ffeeba;
+  border: solid 1px #ffdf7e;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.row {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
