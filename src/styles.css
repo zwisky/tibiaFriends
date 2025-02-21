@@ -1,21 +1,312 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
-
-.dot {
-  height: 15px;
-  width: 15px;
-  background-color: #ffeeba;
-  border: solid 1px #ffdf7e;
-  border-radius: 50%;
+h1 {
   display: inline-block;
-  margin: 0 8px;
+  margin: 30px auto; 
+  background-image: url('/img/table/cacheinfo_background.gif');
+  background-size: 100% 100%;
+  background-repeat: no-repeat; 
+  border-radius: 100px;
+  text-align: center;
+  padding: 10px 20px;
+  color: white;
+  font-size: 2em;
+  font-family: Arial, sans-serif;
 }
 
-.row {
-  margin-top: 5px;
-  margin-bottom: 5px;
+body {
+  background-image: url('/img/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
+.modern-table {
+  max-width: 600px;
+  border-radius: 13px;
+  margin: 0 auto 50px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  background: url('/img/table/table-background.gif');
+  border-spacing: 0;
+  border: 15px solid transparent;
+  position: relative;
+}
 
+/* Encabezados con fondo especial */
+.modern-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  background: url('/img/table/title-background-green.gif') no-repeat center/cover !important;
+  color: #fff !important;
+  border-bottom: 3px solid transparent;
+  position: relative;
+}
+
+/* Celdas y bordes */
+.modern-table td {
+  padding: 0.75rem;
+  border-bottom: 2px solid transparent;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+/* Fila expandida */
+.expanded-row {
+  background: 
+    linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)),
+    url('/img/table/table-background.gif') !important;
+  background-blend-mode: multiply;
+  background-size: cover;
+}
+
+.expanded-row td {
+  padding: 0;
+  border-bottom: none !important;
+  cursor: default;
+  pointer-events: none;
+  border-radius: 15px;
+}
+
+/* Contenido expandido */
+.expanded-row .d-flex {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 35px 20px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.tr-selected {
+  position: relative;
+  background-color: rgba(25, 135, 84, 0.15) !important;
+}
+
+/* Estado online/offline */
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Imágenes de vocación */
+.image-container {
+  flex: 0 0 35%;
+  max-width: 250px;
+  margin: 10px 2rem 0 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vocation-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  max-height: 200px;
+}
+
+/* Detalles del personaje */
+.character-details {
+  flex: 1;
+  text-align: left;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.character-details p {
+  margin: 0.8rem 0;
+  font-size: 0.95rem;
+}
+
+/* char Responsive */
+@media (max-width: 768px) {
+  .modern-table {
+    border-width: 10px;
+  }
+  
+  .expanded-row .d-flex {
+    flex-direction: column;
+    align-items: center;
+    padding: 45px 25px 25px;
+    min-height: auto;
+    gap: 15px;
+  }
+  
+  .image-container {
+    width: 100% !important;
+    max-width: 150px;
+    margin: 15px 0 0 0;
+    padding: 0;
+  }
+  
+  .vocation-img {
+    max-height: 150px;
+    margin-bottom: 8px;
+  }
+  
+  .character-details {
+    text-align: center;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .character-details p {
+    margin: 0.4rem 0;
+  }
+}
+
+/* animación Carga de pagina */
+.custom-loader {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  height: 10vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.pot {
+  position: absolute;
+  animation: run 20s linear infinite;
+}
+
+@keyframes run {
+  0% {
+    left: 0;
+    transform: rotate(-100deg);
+  }
+  50% {
+    left: calc(100% - 80px);
+    transform: rotate(-100deg);
+  }
+  51% {
+    left: calc(100% - 80px);
+    transform: rotate(100deg);
+  }
+  100% {
+    left: 0;
+    transform: rotate(100deg);
+  }
+}
+
+/* Contenedor principal del control de volumen */
+.volume-control-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Botón circular del volumen */
+.volume-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #f72611;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.volume-button:hover {
+  transform: scale(1.1);
+  background: #a91308;
+}
+
+.volume-button:hover .volume-icon {
+  color: white;
+}
+
+.volume-icon {
+  color: #a91308;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+
+/* Slider de volumen vertical */
+.volume-slider-container {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px 4px;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 30px;
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  transform: rotate(270deg);
+  width: 100px;
+  height: 4px;
+  background: #ddd;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  margin: 40px 0;
+  position: absolute;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #a91308;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #a91308;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border: none;
+}
+
+.volume-slider::-webkit-slider-thumb:hover,
+.volume-slider::-moz-range-thumb:hover {
+  background: #a91308;
+}
+
+/* Animación de aparición */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.volume-slider-container {
+  animation: slide-up 0.3s ease-out;
+}

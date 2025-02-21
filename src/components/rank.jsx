@@ -5,7 +5,6 @@ export class Rank extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chars2: ["Radagatsio"],
       chars: [
         "Radagatsio",
         "Ardillon",
@@ -32,10 +31,9 @@ export class Rank extends React.Component {
     };
   }
 
-  // loadChars() loads the charlist asynchronally
-  // charsToLoad = array of char names
-  // Returns an array of objects with each char info
-  
+  // loadChars() carga la lista de personajes de forma asíncrona.
+  // charsToLoad = array de nombres de personajes
+  // Retorna un arreglo de objetos con la info de cada personaje.
   loadChars = async (charsToLoad) => {
     let loadedCharList = [];
     await asyncForEach(charsToLoad, async (char) => {
@@ -54,8 +52,8 @@ export class Rank extends React.Component {
     loadedCharList = this.rankChars(loadedCharList);
     return loadedCharList;
   };
-  // getChar() returns the object with the char's info
-
+  
+  // getChar() retorna el objeto con la info del personaje.
   getChar = async (charName) => {
     let targetUrl = `https://api.tibiadata.com/v4/character/${charName}`;
     try {
@@ -66,7 +64,11 @@ export class Rank extends React.Component {
       let data = await response.json();
   
       if (data?.character?.character) {
-        return data.character.character;
+        // Agregar propiedades de 'character' y 'other_characters' en un solo objeto.
+        return {
+          ...data.character.character,
+          other_characters: data.character.other_characters
+        };
       } else {
         console.error(`Error: Respuesta inesperada para ${charName}`, data);
         return null;
@@ -77,10 +79,7 @@ export class Rank extends React.Component {
     }
   };
 
-  // rankChars() adds a chars rank in the already sorted array, comparing each lvl with 
-  // the one from previous char.
-  // charList = array of objects with each char info
-
+  // rankChars() asigna el ranking a cada personaje comparando su nivel con el anterior.
   rankChars = (charList) => {
     if (!charList || charList.length === 0) {
       console.error("El arreglo charList está vacío o es inválido.");
@@ -100,7 +99,9 @@ export class Rank extends React.Component {
   };
 
   clickChar = (clickedChar) => {
-    this.setState({ activeChar: clickedChar })
+    this.setState(prevState => ({
+      activeChar: prevState.activeChar?.name === clickedChar?.name ? null : clickedChar
+    }));
   }
 
   async componentDidMount() {
