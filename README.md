@@ -12,7 +12,6 @@ Una aplicación web moderna que muestra un ranking en tiempo real de personajes 
 
 - 📊 Ranking en tiempo real de personajes
 - 🎵 Música de fondo temática con control de volumen
-- 🌓 Tema claro/oscuro
 - 📱 Diseño responsive
 - 🟢 Indicador de estado online/offline
 - 📋 Información detallada de personajes:
@@ -51,17 +50,16 @@ Una aplicación web moderna que muestra un ranking en tiempo real de personajes 
 - Mejor manejo de errores en llamadas API
 
 ### UI/UX
-- Tema oscuro/claro
+- Diseño basado en Tibia
 - Diseño responsive mejorado
 - Transiciones suaves
 - Mejor organización de la información
 
 ## 🚀 Próximas Características
 
-- [ ] Implementación de WebSockets para actualizaciones en tiempo real
-- [ ] Más estadísticas de personajes
+- [ ] Más estadísticas de personajes ( Deaths )
 - [ ] Filtros de búsqueda avanzados
-- [ ] Personalización de temas
+- [ ] Mensajes de Novedades en el ranking
 
 ## 📄 Licencia
 
